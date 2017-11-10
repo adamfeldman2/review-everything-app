@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactStars from 'react-stars';
+import moment from 'moment';
+import { SingleDatePicker } from 'react-dates';
 
 class NewReviewForm extends React.Component {
   constructor(props) {
@@ -9,6 +11,8 @@ class NewReviewForm extends React.Component {
       title: '',
       stars: 0,
       note: '',
+      date: moment(),
+      calendarFocused: false,
       error: false
     };
 
@@ -43,6 +47,22 @@ class NewReviewForm extends React.Component {
     });
   }
 
+  onDateChange(date) {
+    this.setState(() => {
+      return {
+        date
+      };
+    });
+  }
+
+  onFocusChange({ focused }) {
+    this.setState(() => {
+      return {
+        calendarFocused: focused
+      };
+    });
+  }
+
   onSubmit(e) {
     e.preventDefault();
     if (this.state.title && this.state.stars) {
@@ -51,11 +71,18 @@ class NewReviewForm extends React.Component {
           error: false
         };
       });
+      this.props.onSubmit({
+        title: this.state.title,
+        date: this.state.date.valueOf(),
+        stars: this.state.stars,
+        note: this.state.note
+      });
     } else {
       this.setState(() => {
         return { error: true };
       });
     }
+    console.log(this.state);
   }
 
   render() {
@@ -75,6 +102,19 @@ class NewReviewForm extends React.Component {
             onChange={e => {
               this.onTitleChange(e);
             }}
+          />
+          <SingleDatePicker
+            date={this.state.date}
+            onDateChange={date => {
+              this.onDateChange(date);
+            }}
+            focused={this.state.calendarFocused}
+            onFocusChange={({ focused }) => {
+              this.onFocusChange({ focused });
+            }}
+            numberOfMonths={1}
+            isOutsideRange={() => false}
+            displayFormat={'MMM DD, YYYY'}
           />
           <ReactStars
             value={this.state.stars}

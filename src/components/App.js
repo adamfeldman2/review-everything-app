@@ -3,13 +3,16 @@ import AppRouter from '../routers/AppRouter';
 import { Provider } from 'react-redux';
 import configureStore from '../store/configure-store';
 import '../styles/App.css';
-import { submitReview } from '../actions/reviews';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import { submitReview, startSubmitReview } from '../actions/reviews';
 
 const store = configureStore();
 
 store.dispatch(
   submitReview({
     title: 'Test Review',
+    date: 1497888000000,
     stars: 1.5,
     note: 'This is a test note, for the test review,'
   })
@@ -18,6 +21,7 @@ store.dispatch(
 store.dispatch(
   submitReview({
     title: 'Test Review 2',
+    date: 1504713600000,
     stars: 4,
     note: 'This is a test note, for the test review 2!!!'
   })

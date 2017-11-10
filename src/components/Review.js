@@ -13,11 +13,12 @@ class Review extends React.Component {
   }
 
   render() {
-    const { title, stars, note } = this.props.reviewData;
+    const { title, date, stars, note } = this.props.reviewData;
     return (
       <div>
         <div className="wrapper wrapper-review">
           <h3>{title}</h3>
+          <div>{date}</div>
           <ReactStars
             count={5}
             value={stars}
