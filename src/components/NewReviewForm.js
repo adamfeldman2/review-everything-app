@@ -114,7 +114,7 @@ class NewReviewForm extends React.Component {
             }}
             numberOfMonths={1}
             isOutsideRange={() => false}
-            displayFormat={'MMM DD, YYYY'}
+            displayFormat={'MMM D, YYYY'}
           />
           <ReactStars
             value={this.state.stars}

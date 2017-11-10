@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactStars from 'react-stars';
+import moment from 'moment';
 
 class Review extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Review extends React.Component {
       <div>
         <div className="wrapper wrapper-review">
           <h3>{title}</h3>
-          <div>{date}</div>
+          <div>{moment(date).format('MMM D, YYYY')}</div>
           <ReactStars
             count={5}
             value={stars}
