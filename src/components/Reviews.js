@@ -1,12 +1,14 @@
 import React from 'react';
-import Review from './Review';
+import { Link } from 'react-router-dom';
 
 const Reviews = props => {
   return (
     <div>
-      <h1>Reviews</h1>
-      <p>This is from the Reviews page.</p>
-      <Review />
+      <div className="wrapper wrapper-reviews">
+        <h1>Reviews</h1>
+        <Link to="/new">+ New Review</Link>
+        <p>This is from the Reviews page.</p>
+      </div>
     </div>
   );
 };

@@ -8,15 +8,23 @@ class Review extends React.Component {
     this.handleRatingChanged = this.handleRatingChanged.bind(this);
   }
 
-  handleRatingChanged() {
-    console.log('handleRatingChanged');
+  handleRatingChanged(newRating) {
+    console.log('New rating: ', newRating);
   }
 
   render() {
     return (
       <div>
-        <p>This is from the Review page.</p>
-        <ReactStars count={5} onChange={this.handleRatingChanged} size={24} color2={'#ffd700'} />
+        <div className="wrapper wrapper-review">
+          <p>This is from the Review page.</p>
+          <ReactStars
+            count={5}
+            onChange={this.handleRatingChanged}
+            size={20}
+            color2={'#ffd700'}
+            className={'stars-wrapper'}
+          />
+        </div>
       </div>
     );
   }

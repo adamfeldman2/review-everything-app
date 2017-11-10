@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const Header = props => {
   return (
     <div>
       <div className="wrapper wrapper-header">
-        <h1>Review Everything</h1>
+        <Link to="/">
+          <h1>Review Everything</h1>
+        </Link>
         <ul>
           <li>
             <NavLink to="/" activeClassName="is-active">
