@@ -9,8 +9,14 @@ const Reviews = props => {
       <div className="wrapper wrapper-reviews">
         <h1>Reviews</h1>
         <Link to="/new">+ New Review</Link>
-        {props.reviews.map(review => {
-          return <Review key={review.title} reviewData={review} />;
+        {props.reviews.map(reviewObj => {
+          return (
+            <div key={reviewObj.title}>
+              <Review {...reviewObj} />
+              <Link to={`/edit/${reviewObj.id}`}>Edit</Link>
+              <div>----------------------------------------------------------------------</div>
+            </div>
+          );
         })}
       </div>
     </div>

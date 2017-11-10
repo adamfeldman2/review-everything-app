@@ -8,10 +8,10 @@ class NewReviewForm extends React.Component {
     super(props);
 
     this.state = {
-      title: '',
-      stars: 0,
-      note: '',
-      date: moment(),
+      title: this.props.title || '',
+      stars: this.props.stars || 0,
+      note: this.props.note || '',
+      date: moment(this.props.date) || moment(),
       calendarFocused: false,
       error: false
     };

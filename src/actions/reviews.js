@@ -15,7 +15,6 @@ const startSubmitReview = (reviewData = {}) => {
       .ref('reviews')
       .push(review)
       .then(snapshot => {
-        console.log('snapshot: ', snapshot);
         dispatch(
           submitReview({
             id: snapshot.key,
