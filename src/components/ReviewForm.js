@@ -3,7 +3,7 @@ import ReactStars from 'react-stars';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
-class NewReviewForm extends React.Component {
+class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -82,7 +82,6 @@ class NewReviewForm extends React.Component {
         return { error: true };
       });
     }
-    console.log(this.state);
   }
 
   render() {
@@ -139,4 +138,4 @@ class NewReviewForm extends React.Component {
   }
 }
 
-export default NewReviewForm;
+export default ReviewForm;

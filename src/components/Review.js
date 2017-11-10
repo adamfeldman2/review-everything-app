@@ -7,7 +7,7 @@ const Review = props => {
 
   return (
     <div>
-      <div className="wrapper wrapper-review">
+      <div className="wrapper-review">
         <h3>{title}</h3>
         <div>{moment(date).format('MMM D, YYYY')}</div>
         <ReactStars
