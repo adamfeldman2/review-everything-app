@@ -5,12 +5,13 @@ import configureStore from '../store/configure-store';
 import '../styles/App.css';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
-import { submitReview, startSubmitReview } from '../actions/reviews';
+import { submitReview } from '../actions/reviews';
 
 const store = configureStore();
 
 store.dispatch(
   submitReview({
+    id: '-KyawryBbjyWhKpNqGRX',
     title: 'Test Review',
     date: 1497888000000,
     stars: 1.5,
@@ -20,6 +21,7 @@ store.dispatch(
 
 store.dispatch(
   submitReview({
+    id: '-Kyax9lTrQ_MBEyx0iv3',
     title: 'Test Review 2',
     date: 1504713600000,
     stars: 4,

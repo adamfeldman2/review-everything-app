@@ -9,9 +9,7 @@ class Review extends React.Component {
     this.handleRatingChanged = this.handleRatingChanged.bind(this);
   }
 
-  handleRatingChanged(newRating) {
-    console.log('New rating: ', newRating);
-  }
+  handleRatingChanged(newRating) {}
 
   render() {
     const { title, date, stars, note } = this.props.reviewData;

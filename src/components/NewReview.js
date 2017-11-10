@@ -2,10 +2,9 @@ import React from 'react';
 import NewReviewForm from './NewReviewForm';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { submitReview } from '../actions/reviews';
+import { startSubmitReview } from '../actions/reviews';
 
 const NewReview = props => {
-  console.log(props);
   return (
     <div>
       <div className="wrapper wrapper-new-review">
@@ -13,7 +12,7 @@ const NewReview = props => {
         <Link to="/">&#8592; All Reviews</Link>
         <NewReviewForm
           onSubmit={review => {
-            props.dispatch(submitReview(review));
+            props.dispatch(startSubmitReview(review));
             props.history.push('/');
           }}
         />
