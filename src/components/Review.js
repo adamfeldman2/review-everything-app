@@ -13,17 +13,23 @@ class Review extends React.Component {
   }
 
   render() {
+    const { title, stars, note } = this.props.reviewData;
     return (
       <div>
         <div className="wrapper wrapper-review">
-          <p>This is from the Review page.</p>
+          <h3>{title}</h3>
           <ReactStars
             count={5}
+            value={stars}
             onChange={this.handleRatingChanged}
+            edit={false}
             size={20}
             color2={'#ffd700'}
             className={'stars-wrapper'}
           />
+          <div>Note: {note}</div>
+          <button>Edit</button>
+          <div>----------------------------------------------------------------------</div>
         </div>
       </div>
     );

@@ -10,13 +10,21 @@ const store = configureStore();
 store.dispatch(
   submitReview({
     title: 'Test Review',
-    stars: 3.5,
+    stars: 1.5,
     note: 'This is a test note, for the test review,'
   })
 );
 
+store.dispatch(
+  submitReview({
+    title: 'Test Review 2',
+    stars: 4,
+    note: 'This is a test note, for the test review 2!!!'
+  })
+);
+
 const state = store.getState();
-console.log('State: ', state);
+console.log('State for App.js: ', state);
 
 class App extends Component {
   render() {

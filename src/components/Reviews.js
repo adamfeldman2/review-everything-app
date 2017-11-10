@@ -1,5 +1,7 @@
 import React from 'react';
+import Review from './Review';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const Reviews = props => {
   return (
@@ -7,10 +9,18 @@ const Reviews = props => {
       <div className="wrapper wrapper-reviews">
         <h1>Reviews</h1>
         <Link to="/new">+ New Review</Link>
-        <p>This is from the Reviews page.</p>
+        {props.reviews.map(review => {
+          return <Review key={review.title} reviewData={review} />;
+        })}
       </div>
     </div>
   );
 };
 
-export default Reviews;
+const mapStateToProps = state => {
+  return {
+    reviews: state.reviews
+  };
+};
+
+export default connect(mapStateToProps)(Reviews);

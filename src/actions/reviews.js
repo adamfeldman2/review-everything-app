@@ -1,4 +1,4 @@
-const submitReview = ({ ...review }) => {
+const submitReview = (review = {}) => {
   return {
     type: 'SUBMIT_REVIEW',
     review

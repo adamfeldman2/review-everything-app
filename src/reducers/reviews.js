@@ -1,13 +1,9 @@
-const reviewReducerDefaultState = {
-  title: '',
-  stars: 0,
-  note: ''
-};
+const reviewReducerDefaultState = [];
 
 const reviewReducer = (state = reviewReducerDefaultState, action) => {
   switch (action.type) {
     case 'SUBMIT_REVIEW':
-      return { ...state, ...action.review };
+      return [...state, action.review];
 
     default:
       return state;
