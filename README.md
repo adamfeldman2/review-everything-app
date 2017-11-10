@@ -4,4 +4,4 @@ This project was built using [Create React App](https://github.com/facebookincub
 
 Run `yarn start` to start building.
 
-Visit [localhost:3000](http://localhost:3000/).# review-everything-app
+Visit [localhost:3000](http://localhost:3000/).
