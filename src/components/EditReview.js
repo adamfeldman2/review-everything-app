@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReviewForm from './ReviewForm';
+import { startEditReview } from '../actions/reviews';
 
 const EditReview = props => {
-  console.log(props.review);
   return (
     <div>
       <div className="wrapper wrapper-edit-review">
@@ -12,7 +12,8 @@ const EditReview = props => {
         <ReviewForm
           {...props.review}
           onSubmit={review => {
-            console.log(review);
+            props.dispatch(startEditReview(review));
+            props.history.push('/');
           }}
         />
       </div>

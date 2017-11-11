@@ -8,6 +8,7 @@ class ReviewForm extends React.Component {
     super(props);
 
     this.state = {
+      id: this.props.id || '',
       title: this.props.title || '',
       stars: this.props.stars || 0,
       note: this.props.note || '',
@@ -72,6 +73,7 @@ class ReviewForm extends React.Component {
         };
       });
       this.props.onSubmit({
+        id: this.state.id,
         title: this.state.title,
         date: this.state.date.valueOf(),
         stars: this.state.stars,
