@@ -35,7 +35,6 @@ const editReview = (id, updates) => {
 
 const startEditReview = (reviewData = {}) => {
   const { id = '', title = '', date = 0, stars = 0, note = '' } = reviewData;
-  const reviewId = id;
   const review = { title, date, stars, note };
   return dispatch => {
     database
@@ -43,7 +42,7 @@ const startEditReview = (reviewData = {}) => {
       .update({
         ...review
       })
-      .then(snapshot => {
+      .then(() => {
         dispatch(
           editReview(id, {
             ...review
@@ -53,4 +52,26 @@ const startEditReview = (reviewData = {}) => {
   };
 };
 
-export { submitReview, startSubmitReview, startEditReview };
+const removeReview = ({ id }) => {
+  return {
+    type: 'REMOVE_REVIEW',
+    id
+  };
+};
+
+const startRemoveReview = id => {
+  return dispatch => {
+    database
+      .ref(`reviews/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(
+          removeReview({
+            id
+          })
+        );
+      });
+  };
+};
+
+export { submitReview, startSubmitReview, startEditReview, startRemoveReview };

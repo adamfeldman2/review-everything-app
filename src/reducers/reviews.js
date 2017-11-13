@@ -14,6 +14,11 @@ const reviewReducer = (state = reviewReducerDefaultState, action) => {
         }
       });
 
+    case 'REMOVE_REVIEW':
+      return state.filter(review => {
+        return action.id !== review.id;
+      });
+
     default:
       return state;
   }

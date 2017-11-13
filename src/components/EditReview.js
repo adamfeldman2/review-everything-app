@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReviewForm from './ReviewForm';
-import { startEditReview } from '../actions/reviews';
+import { startEditReview, startRemoveReview } from '../actions/reviews';
 
 const EditReview = props => {
   return (
@@ -16,6 +16,14 @@ const EditReview = props => {
             props.history.push('/');
           }}
         />
+        <button
+          onClick={() => {
+            props.dispatch(startRemoveReview(props.review.id));
+            props.history.push('/');
+          }}
+        >
+          Remove
+        </button>
       </div>
     </div>
   );
