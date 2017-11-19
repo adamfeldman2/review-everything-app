@@ -75,7 +75,6 @@ const startRemoveReview = id => {
 };
 
 const fetchReviews = reviewsArr => {
-  console.log('reviewsArr:', reviewsArr);
   return {
     type: 'FETCH_REVIEWS',
     reviewsArr

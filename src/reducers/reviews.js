@@ -1,6 +1,4 @@
-const reviewReducerDefaultState = [];
-
-const reviewReducer = (state = reviewReducerDefaultState, action) => {
+const reviewReducer = (state = [], action) => {
   switch (action.type) {
     case 'SUBMIT_REVIEW':
       return [...state, action.review];
@@ -27,4 +25,4 @@ const reviewReducer = (state = reviewReducerDefaultState, action) => {
   }
 };
 
-export { reviewReducer };
+export default reviewReducer;

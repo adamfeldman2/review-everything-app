@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import Header from '../components/Header';
 import Reviews from '../components/Reviews';
 import NewReview from '../components/NewReview';
@@ -8,9 +9,11 @@ import Profile from '../components/Profile';
 import Login from '../components/Login';
 import FourOhFour from '../components/FourOhFour';
 
+const history = createHistory();
+
 const AppRouter = () => {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div>
         <Header />
         <Switch>
@@ -22,8 +25,8 @@ const AppRouter = () => {
           <Route component={FourOhFour} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 };
 
-export default AppRouter;
+export { history, AppRouter as default };

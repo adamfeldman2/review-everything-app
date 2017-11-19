@@ -9,13 +9,16 @@ const EditReview = props => {
       <div className="wrapper wrapper-edit-review">
         <h1>Edit Review</h1>
         <p>Editing Review ID: {props.match.params.id}</p>
-        <ReviewForm
-          {...props.review}
-          onSubmit={review => {
-            props.dispatch(startEditReview(review));
-            props.history.push('/reviews');
-          }}
-        />
+        {props.review && (
+          <ReviewForm
+            {...props.review}
+            onSubmit={review => {
+              props.dispatch(startEditReview(review));
+              props.history.push('/reviews');
+            }}
+          />
+        )}
+
         <button
           onClick={() => {
             props.dispatch(startRemoveReview(props.review.id));

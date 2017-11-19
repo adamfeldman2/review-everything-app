@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-import AppRouter from '../routers/AppRouter';
+import AppRouter, { history } from '../routers/AppRouter';
 import { Provider } from 'react-redux';
 import configureStore from '../store/configure-store';
+import { firebase } from '../firebase/firebase';
+import { startFetchReviews } from '../actions/reviews';
+import { login, logout } from '../actions/auth';
 import '../styles/App.css';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
-import { firebase } from '../firebase/firebase';
 
 const store = configureStore();
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
+    store.dispatch(login(user.uid));
+    console.log('uid:', user.uid);
     console.log('Logged in');
+    store.dispatch(startFetchReviews());
+    if (history.location.pathname === '/') {
+      history.push('/reviews');
+    }
   } else {
+    store.dispatch(logout());
     console.log('Logged out');
+    history.push('/');
   }
 });
 
