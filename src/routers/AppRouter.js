@@ -5,6 +5,7 @@ import Reviews from '../components/Reviews';
 import NewReview from '../components/NewReview';
 import EditReview from '../components/EditReview';
 import Profile from '../components/Profile';
+import Login from '../components/Login';
 import FourOhFour from '../components/FourOhFour';
 
 const AppRouter = () => {
@@ -13,7 +14,8 @@ const AppRouter = () => {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/" component={Reviews} />
+          <Route exact path="/" component={Login} />
+          <Route path="/reviews" component={Reviews} />
           <Route path="/new" component={NewReview} />
           <Route path="/edit/:id" component={EditReview} />
           <Route path="/profile" component={Profile} />

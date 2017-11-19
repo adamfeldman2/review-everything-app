@@ -6,6 +6,7 @@ import '../styles/App.css';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { submitReview } from '../actions/reviews';
+import { firebase } from '../firebase/firebase';
 
 const store = configureStore();
 
@@ -31,6 +32,14 @@ store.dispatch(
 
 const state = store.getState();
 console.log('State for App.js: ', state);
+
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    console.log('Logged in');
+  } else {
+    console.log('Logged out');
+  }
+});
 
 class App extends Component {
   render() {

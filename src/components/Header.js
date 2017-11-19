@@ -1,9 +1,12 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { startLogout } from '../actions/auth';
 
 const Header = props => {
   return (
     <div>
+      <button onClick={props.startLogout}>Logout</button>
       <div className="wrapper wrapper-header">
         <Link to="/">
           <h1>Review Everything</h1>
@@ -25,4 +28,12 @@ const Header = props => {
   );
 };
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+  return {
+    startLogout: () => {
+      dispatch(startLogout());
+    }
+  };
+};
+
+export default connect(undefined, mapDispatchToProps)(Header);
