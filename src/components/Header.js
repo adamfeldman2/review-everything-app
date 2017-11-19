@@ -13,7 +13,7 @@ const Header = props => {
         </Link>
         <ul>
           <li>
-            <NavLink to="/" activeClassName="is-active">
+            <NavLink to="/reviews" activeClassName="is-active">
               Reviews
             </NavLink>
           </li>

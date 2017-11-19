@@ -13,7 +13,7 @@ const NewReview = props => {
         <ReviewForm
           onSubmit={review => {
             props.dispatch(startSubmitReview(review));
-            props.history.push('/');
+            props.history.push('/reviews');
           }}
         />
       </div>

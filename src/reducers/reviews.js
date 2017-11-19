@@ -19,6 +19,9 @@ const reviewReducer = (state = reviewReducerDefaultState, action) => {
         return action.id !== review.id;
       });
 
+    case 'FETCH_REVIEWS':
+      return action.reviewsArr;
+
     default:
       return state;
   }

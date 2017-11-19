@@ -13,13 +13,13 @@ const EditReview = props => {
           {...props.review}
           onSubmit={review => {
             props.dispatch(startEditReview(review));
-            props.history.push('/');
+            props.history.push('/reviews');
           }}
         />
         <button
           onClick={() => {
             props.dispatch(startRemoveReview(props.review.id));
-            props.history.push('/');
+            props.history.push('/reviews');
           }}
         >
           Remove

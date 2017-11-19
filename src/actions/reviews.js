@@ -74,4 +74,27 @@ const startRemoveReview = id => {
   };
 };
 
-export { submitReview, startSubmitReview, startEditReview, startRemoveReview };
+const fetchReviews = reviewsArr => {
+  console.log('reviewsArr:', reviewsArr);
+  return {
+    type: 'FETCH_REVIEWS',
+    reviewsArr
+  };
+};
+
+const startFetchReviews = () => {
+  return dispatch => {
+    const reviewsArr = [];
+    database
+      .ref('reviews')
+      .once('value')
+      .then(snapshot => {
+        snapshot.forEach(childSnapshot => {
+          reviewsArr.push({ id: childSnapshot.key, ...childSnapshot.val() });
+        });
+        dispatch(fetchReviews(reviewsArr));
+      });
+  };
+};
+
+export { submitReview, startSubmitReview, startEditReview, startRemoveReview, startFetchReviews };
