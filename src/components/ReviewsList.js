@@ -1,5 +1,6 @@
 import React from 'react';
 import Review from './Review';
+import selectedReviews from '../selectors/reviews';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -22,7 +23,7 @@ const ReviewsList = props => {
 
 const mapStateToProps = state => {
   return {
-    reviews: state.reviews
+    reviews: selectedReviews(state.reviews, state.filters)
   };
 };
 

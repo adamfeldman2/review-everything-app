@@ -1,5 +1,4 @@
 import React from 'react';
-import Review from './Review';
 import { Link } from 'react-router-dom';
 import Filters from './Filters';
 import ReviewsList from './ReviewsList';
