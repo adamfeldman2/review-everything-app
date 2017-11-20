@@ -10,6 +10,7 @@ class ReviewForm extends React.Component {
     this.state = {
       id: this.props.id || '',
       title: this.props.title || '',
+      category: this.props.category || '',
       stars: this.props.stars || 0,
       note: this.props.note || '',
       date: moment(this.props.date) || moment(),
@@ -26,6 +27,15 @@ class ReviewForm extends React.Component {
     this.setState(() => {
       return {
         title
+      };
+    });
+  }
+
+  onCategoryChange(e) {
+    const category = e.target.value;
+    this.setState(() => {
+      return {
+        category
       };
     });
   }
@@ -75,6 +85,7 @@ class ReviewForm extends React.Component {
       this.props.onSubmit({
         id: this.state.id,
         title: this.state.title,
+        category: this.state.category,
         date: this.state.date.valueOf(),
         stars: this.state.stars,
         note: this.state.note
@@ -102,6 +113,14 @@ class ReviewForm extends React.Component {
             autoFocus
             onChange={e => {
               this.onTitleChange(e);
+            }}
+          />
+          <input
+            type="text"
+            value={this.state.category}
+            placeholder="Category"
+            onChange={e => {
+              this.onCategoryChange(e);
             }}
           />
           <SingleDatePicker
