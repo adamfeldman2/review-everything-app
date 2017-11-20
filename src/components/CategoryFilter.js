@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { categoryFilter } from '../actions/filters';
 
 class CategoryFilter extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class CategoryFilter extends React.Component {
 
   handleCategoryChange(e) {
     const category = e.target.value;
+    this.props.categoryFilter(category);
     this.setState(() => {
       return {
         category
@@ -27,8 +29,8 @@ class CategoryFilter extends React.Component {
         Category:
         <select value={this.state.category} onChange={this.handleCategoryChange}>
           <option value="all">ALL</option>
-          {this.props.reviewsArr.length > 0 &&
-            this.props.reviewsArr.map(review => {
+          {this.props.uniqueReviewsArr.length > 0 &&
+            this.props.uniqueReviewsArr.map(review => {
               return (
                 <option key={review.category} value={review.category}>
                   {review.category.toUpperCase()}
@@ -44,7 +46,7 @@ class CategoryFilter extends React.Component {
 const mapStateToProps = state => {
   const uniqueCategories = [];
   return {
-    reviewsArr: state.reviews.filter(review => {
+    uniqueReviewsArr: state.reviews.filter(review => {
       if (uniqueCategories.indexOf(review.category) <= -1) {
         uniqueCategories.push(review.category);
         return review;
@@ -53,4 +55,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(CategoryFilter);
+const mapDispatchToProps = dispatch => {
+  return {
+    categoryFilter: (reviews, category) => {
+      dispatch(categoryFilter(reviews, category));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryFilter);

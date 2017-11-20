@@ -1,7 +1,7 @@
 const categoryFilter = category => {
   return {
     type: 'CATEGORY_FILTER',
-    category
+    category: category.toLowerCase()
   };
 };
 

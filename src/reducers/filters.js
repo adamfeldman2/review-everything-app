@@ -1,9 +1,11 @@
-const filtersReducer = (state = {}, action) => {
+const filtersReducerInitialState = {
+  category: 'all'
+};
+
+const filtersReducer = (state = filtersReducerInitialState, action) => {
   switch (action.type) {
     case 'CATEGORY_FILTER':
-      return {
-        category: action.category
-      };
+      return { ...state, category: action.category };
 
     default:
       return state;
