@@ -1,8 +1,8 @@
 import React from 'react';
 import Review from './Review';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import Filters from './Filters';
+import ReviewsList from './ReviewsList';
 
 const Reviews = props => {
   return (
@@ -11,25 +11,10 @@ const Reviews = props => {
         <h1>Reviews</h1>
         <Filters />
         <Link to="/new">+ New Review</Link>
-        {props.reviews.length > 0 &&
-          props.reviews.map(reviewObj => {
-            return (
-              <div key={reviewObj.title}>
-                <Review {...reviewObj} />
-                <Link to={`/edit/${reviewObj.id}`}>Edit</Link>
-                <div>----------------------------------------------------------------------</div>
-              </div>
-            );
-          })}
+        <ReviewsList />
       </div>
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    reviews: state.reviews
-  };
-};
-
-export default connect(mapStateToProps)(Reviews);
+export default Reviews;
