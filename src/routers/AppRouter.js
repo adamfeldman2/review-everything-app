@@ -2,10 +2,10 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import Header from '../components/Header';
-import Reviews from '../components/Reviews';
-import NewReview from '../components/NewReview';
-import EditReview from '../components/EditReview';
-import Profile from '../components/Profile';
+import ReviewsPage from '../components/ReviewsPage';
+import NewReviewPage from '../components/NewReviewPage';
+import EditReviewPage from '../components/EditReviewPage';
+import ProfilePage from '../components/ProfilePage';
 import Login from '../components/Login';
 import FourOhFour from '../components/FourOhFour';
 
@@ -18,10 +18,10 @@ const AppRouter = () => {
         <Header />
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route path="/reviews" component={Reviews} />
-          <Route path="/new" component={NewReview} />
-          <Route path="/edit/:id" component={EditReview} />
-          <Route path="/profile" component={Profile} />
+          <Route path="/reviews" component={ReviewsPage} />
+          <Route path="/new" component={NewReviewPage} />
+          <Route path="/edit/:id" component={EditReviewPage} />
+          <Route path="/profile" component={ProfilePage} />
           <Route component={FourOhFour} />
         </Switch>
       </div>

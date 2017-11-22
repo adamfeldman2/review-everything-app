@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { startSubmitReview } from '../actions/reviews';
 
-const NewReview = props => {
+const NewReviewPage = props => {
   return (
     <div>
       <div className="wrapper wrapper-new-review">
@@ -21,4 +21,4 @@ const NewReview = props => {
   );
 };
 
-export default connect()(NewReview);
+export default connect()(NewReviewPage);

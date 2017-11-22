@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ReviewForm from './ReviewForm';
 import { startEditReview, startRemoveReview } from '../actions/reviews';
 
-const EditReview = props => {
+const EditReviewPage = props => {
   return (
     <div>
       <div className="wrapper wrapper-edit-review">
@@ -40,4 +40,4 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(mapStateToProps)(EditReview);
+export default connect(mapStateToProps)(EditReviewPage);

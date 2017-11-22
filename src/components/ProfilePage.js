@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Profile = props => {
+const ProfilePage = props => {
   return (
     <div>
       <div className="wrapper wrapper-new-review">
@@ -11,4 +11,4 @@ const Profile = props => {
   );
 };
 
-export default Profile;
+export default ProfilePage;
