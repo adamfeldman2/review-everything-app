@@ -46,12 +46,16 @@ class CategoryFilter extends React.Component {
 const mapStateToProps = state => {
   const uniqueCategories = [];
   return {
-    uniqueReviewsArr: state.reviews.filter(review => {
-      if (uniqueCategories.indexOf(review.category) <= -1) {
-        uniqueCategories.push(review.category);
-        return review;
-      }
-    })
+    uniqueReviewsArr: state.reviews
+      .filter(review => {
+        if (uniqueCategories.indexOf(review.category) <= -1) {
+          uniqueCategories.push(review.category);
+          return review;
+        }
+      })
+      .sort((a, b) => {
+        return a.category > b.category ? 1 : -1;
+      })
   };
 };
 

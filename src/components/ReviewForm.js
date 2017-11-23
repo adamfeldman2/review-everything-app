@@ -85,7 +85,7 @@ class ReviewForm extends React.Component {
       this.props.onSubmit({
         id: this.state.id,
         title: this.state.title,
-        category: this.state.category,
+        category: this.state.category.toLowerCase(),
         date: this.state.date.valueOf(),
         stars: this.state.stars,
         note: this.state.note

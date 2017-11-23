@@ -9,7 +9,6 @@ const Review = props => {
     <div>
       <div className="wrapper-review">
         <h3>{title}</h3>
-        <div>Category: {category}</div>
         <div>{moment(date).format('MMM D, YYYY')}</div>
         <ReactStars
           count={5}

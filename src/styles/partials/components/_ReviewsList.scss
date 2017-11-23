@@ -1,0 +1,27 @@
+.wrapper-reviews-list {
+  .wrapper-category {
+    & > div {
+      padding: 10px;
+    }
+
+    & > div:not(:first-of-type) {
+      border-top: 2px solid $black;
+    }
+
+    & > div:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 2em;
+      background-color: $primary;
+      text-transform: uppercase;
+      margin: 45px 0 10px;
+      color: $white;
+      font-weight: $font-weight-light;
+      padding: 0.3em;
+      letter-spacing: 1px;
+      font-weight: $font-weight-light;
+    }
+  }
+}
