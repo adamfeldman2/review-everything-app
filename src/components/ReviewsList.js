@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const ReviewsList = props => {
-  console.log('categoryFilter:', props.categoryFilter);
   return (
     <div className="wrapper-reviews-list">
       {props.categories.length > 0 &&

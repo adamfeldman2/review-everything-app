@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const FullReviewPage = props => {
-  console.log('Review:', props);
   return (
     <div className="wrapper wrapper-full-review-page">
       <h1>Full Review Page</h1>
