@@ -2,13 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReviewForm from './ReviewForm';
 import { startEditReview, startRemoveReview } from '../actions/reviews';
+import { Link } from 'react-router-dom';
 
 const EditReviewPage = props => {
   return (
     <div>
-      <div className="wrapper wrapper-edit-review">
+      <div className="wrapper wrapper-edit-review-page">
         <h1>Edit Review</h1>
-        <p>Editing Review ID: {props.match.params.id}</p>
+        <Link to="/reviews">&#8592; All Reviews</Link>
         {props.review && (
           <ReviewForm
             {...props.review}

@@ -8,7 +8,7 @@ const Header = props => {
     <div>
       <button onClick={props.startLogout}>Logout</button>
       <div className="wrapper wrapper-header">
-        <Link to="/">
+        <Link to="/reviews">
           <h1>Review Everything</h1>
         </Link>
         <ul>

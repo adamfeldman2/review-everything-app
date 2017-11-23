@@ -7,7 +7,7 @@ import { startSubmitReview } from '../actions/reviews';
 const NewReviewPage = props => {
   return (
     <div>
-      <div className="wrapper wrapper-new-review">
+      <div className="wrapper wrapper-new-review-page">
         <h1>New Review</h1>
         <Link to="/reviews">&#8592; All Reviews</Link>
         <ReviewForm

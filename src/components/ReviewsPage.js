@@ -6,7 +6,7 @@ import ReviewsList from './ReviewsList';
 const ReviewsPage = props => {
   return (
     <div>
-      <div className="wrapper wrapper-reviews">
+      <div className="wrapper wrapper-reviews-page">
         <h1>Reviews</h1>
         <Filters />
         <Link to="/new">+ New Review</Link>

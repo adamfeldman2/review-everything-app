@@ -7,7 +7,7 @@ class CategoryFilter extends React.Component {
     super(props);
 
     this.state = {
-      category: 'all'
+      category: this.props.currentCategory
     };
 
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
@@ -55,7 +55,9 @@ const mapStateToProps = state => {
       })
       .sort((a, b) => {
         return a.category > b.category ? 1 : -1;
-      })
+      }),
+
+    currentCategory: state.filters.category
   };
 };
 

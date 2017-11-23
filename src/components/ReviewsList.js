@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const ReviewsList = props => {
+  console.log('categoryFilter:', props.categoryFilter);
   return (
     <div className="wrapper-reviews-list">
       {props.categories.length > 0 &&
@@ -12,8 +13,12 @@ const ReviewsList = props => {
         props.categories.map(({ category }) => {
           return (
             <div key={category} className="wrapper-category">
-              {/*  display categories  */}
-              <h2>{category}</h2>
+              {/*  display category heading if filter matches category or category is 'all' */}
+              {props.categoryFilter === category || props.categoryFilter === 'all' ? (
+                <h2>{category}</h2>
+              ) : (
+                ''
+              )}
               {/* iterate over all reviews */}
               {props.reviews.map((reviewObj, i) => {
                 // if review's category matches the category heading return the review
@@ -48,7 +53,9 @@ const mapStateToProps = state => {
       })
       .sort((a, b) => {
         return a.category.toLowerCase() > b.category.toLowerCase() ? 1 : -1;
-      })
+      }),
+
+    categoryFilter: state.filters.category
   };
 };
 
