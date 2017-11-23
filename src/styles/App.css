@@ -224,5 +224,32 @@ body {
   letter-spacing: 1px;
   font-weight: 300; }
 
+.wrapper-reviews-list .wrapper-category .note {
+  overflow: hidden;
+  position: relative;
+  line-height: 1.4em;
+  max-height: 4.17em;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em; }
+
+.wrapper-reviews-list .wrapper-category .note:before {
+  content: '...';
+  position: absolute;
+  right: 5px;
+  bottom: 0; }
+
+.wrapper-reviews-list .wrapper-category .note:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white; }
+
 .wrapper-reviews-list .category {
   display: none; }
+
+.wrapper-footer {
+  padding: 50px 0; }

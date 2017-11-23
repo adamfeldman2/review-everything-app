@@ -23,6 +23,34 @@
       letter-spacing: 1px;
       font-weight: $font-weight-light;
     }
+
+    // Ellipsis //
+    .note {
+      overflow: hidden;
+      position: relative;
+      line-height: 1.4em;
+      max-height: 4.17em;
+      text-align: justify;
+      margin-right: -1em;
+      padding-right: 1em;
+    }
+
+    .note:before {
+      content: '...';
+      position: absolute;
+      right: 5px;
+      bottom: 0;
+    }
+
+    .note:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 1em;
+      height: 1em;
+      margin-top: 0.2em;
+      background: white;
+    }
   }
 
   .category {

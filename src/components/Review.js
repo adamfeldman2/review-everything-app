@@ -26,7 +26,7 @@ const Review = props => {
           color2={'#ffd700'}
           className={'stars-wrapper'}
         />
-        <div>Note: {note}</div>
+        <div className="note">Note: {note}</div>
       </div>
     </div>
   );

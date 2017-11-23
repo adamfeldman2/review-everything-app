@@ -9,6 +9,7 @@ import EditReviewPage from '../components/EditReviewPage';
 import ProfilePage from '../components/ProfilePage';
 import Login from '../components/Login';
 import FourOhFour from '../components/FourOhFour';
+import Footer from '../components/Footer';
 
 const history = createHistory();
 
@@ -26,6 +27,7 @@ const AppRouter = () => {
           <Route path="/profile" component={ProfilePage} />
           <Route component={FourOhFour} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
