@@ -4,7 +4,6 @@ import ReviewForm from './ReviewForm';
 import { startEditReview, startRemoveReview } from '../actions/reviews';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import { width } from 'window-size';
 
 const modalStyles = {
   overlay: {
@@ -94,11 +93,7 @@ class EditReviewPage extends React.Component {
           <button onClick={this.openModal}>Remove</button>
         </div>
 
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
-          style={modalStyles}
-        >
+        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={modalStyles}>
           <div className="modal-content">
             <p>Are you sure you want to remove this review?</p>
             <button onClick={this.closeModal}>Cancel</button>

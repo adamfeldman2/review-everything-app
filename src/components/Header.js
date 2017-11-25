@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startLogout } from '../actions/auth';
 
@@ -8,21 +8,12 @@ const Header = props => {
     <div>
       <button onClick={props.startLogout}>Logout</button>
       <div className="wrapper wrapper-header">
+        <Link to="/profile">
+          <div>Profile</div>
+        </Link>
         <Link to="/reviews">
           <h1>Review Everything</h1>
         </Link>
-        <ul>
-          <li>
-            <NavLink to="/reviews" activeClassName="is-active">
-              Reviews
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/profile" activeClassName="is-active">
-              Profile
-            </NavLink>
-          </li>
-        </ul>
       </div>
     </div>
   );

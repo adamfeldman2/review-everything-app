@@ -56,4 +56,11 @@
   .category {
     display: none;
   }
+
+  .loading {
+    height: 65vh;
+    background-image: url(../images/loading.gif);
+    background-position: 50% 5%;
+    background-repeat: no-repeat;
+  }
 }

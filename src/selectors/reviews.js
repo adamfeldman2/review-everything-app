@@ -1,10 +1,15 @@
-const selectedReviews = (reviews, { category }) => {
+const selectedReviews = (reviews, { category, searchField }) => {
   return reviews
     .filter(review => {
-      if (category === 'all') {
+      const categoryMatch = review.category.toLowerCase() === category;
+      const searchMatch =
+        review.title.toLowerCase().includes(searchField) ||
+        review.note.toLowerCase().includes(searchField);
+
+      if (category === 'all' && !searchField) {
         return reviews;
-      } else {
-        return review.category.toLowerCase() === category;
+      } else if ((category === 'all' && searchMatch) || (categoryMatch && searchMatch)) {
+        return searchMatch;
       }
     })
     .sort((a, b) => {

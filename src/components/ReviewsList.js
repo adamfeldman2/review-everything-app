@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const ReviewsList = props => {
   return (
     <div className="wrapper-reviews-list">
-      {props.categories.length > 0 &&
+      {props.categories.length > 0 ? (
         // iterate over categories
         props.categories.map(({ category }) => {
           return (
@@ -32,7 +32,10 @@ const ReviewsList = props => {
               })}
             </div>
           );
-        })}
+        })
+      ) : (
+        <div className="loading" />
+      )}
     </div>
   );
 };
@@ -43,7 +46,7 @@ const mapStateToProps = state => {
   return {
     reviews: selectedReviews(state.reviews, state.filters),
 
-    categories: state.reviews
+    categories: selectedReviews(state.reviews, state.filters)
       .filter(review => {
         if (uniqueCategories.indexOf(review.category) === -1) {
           uniqueCategories.push(review.category);
@@ -53,7 +56,6 @@ const mapStateToProps = state => {
       .sort((a, b) => {
         return a.category.toLowerCase() > b.category.toLowerCase() ? 1 : -1;
       }),
-
     categoryFilter: state.filters.category
   };
 };

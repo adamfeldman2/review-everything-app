@@ -5,4 +5,11 @@ const categoryFilter = category => {
   };
 };
 
-export { categoryFilter };
+const search = searchField => {
+  return {
+    type: 'SEARCH',
+    searchField
+  };
+};
+
+export { categoryFilter, search };
