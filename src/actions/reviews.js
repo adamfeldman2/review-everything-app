@@ -10,9 +10,11 @@ const submitReview = review => {
 const startSubmitReview = (reviewData = {}) => {
   const { title = '', date = 0, category = '', stars = 0, note = '' } = reviewData;
   const review = { title, date, category, stars, note };
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
     database
-      .ref('reviews')
+      .ref(`users/${uid}/reviews`)
       .push(review)
       .then(snapshot => {
         dispatch(
@@ -36,9 +38,11 @@ const editReview = (id, updates) => {
 const startEditReview = (reviewData = {}) => {
   const { id = '', title = '', date = 0, category = '', stars = 0, note = '' } = reviewData;
   const review = { title, date, category, stars, note };
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
     database
-      .ref(`reviews/${id}`)
+      .ref(`users/${uid}/reviews/${id}`)
       .update({
         ...review
       })
@@ -60,16 +64,14 @@ const removeReview = ({ id }) => {
 };
 
 const startRemoveReview = id => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
     database
-      .ref(`reviews/${id}`)
+      .ref(`users/${uid}/reviews/${id}`)
       .remove()
       .then(() => {
-        dispatch(
-          removeReview({
-            id
-          })
-        );
+        dispatch(removeReview({ id }));
       });
   };
 };
@@ -82,10 +84,12 @@ const fetchReviews = reviewsArr => {
 };
 
 const startFetchReviews = () => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const reviewsArr = [];
+
     database
-      .ref('reviews')
+      .ref(`users/${uid}/reviews`)
       .once('value')
       .then(snapshot => {
         snapshot.forEach(childSnapshot => {
