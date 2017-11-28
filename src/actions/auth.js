@@ -1,11 +1,7 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 
-const login = (uid, email) => {
-  return {
-    type: 'LOGIN',
-    uid,
-    email
-  };
+const login = (uid, email, accountCreation) => {
+  return { type: 'LOGIN', uid, email, accountCreation };
 };
 
 const startLogin = () => {

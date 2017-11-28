@@ -1,3 +1,16 @@
 .wrapper-footer {
-  padding: 50px 0;
+  padding: 15px 0;
+  margin-top: 85px;
+
+  p {
+    font-size: 0.8em;
+
+    a {
+      color: $splash-light;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

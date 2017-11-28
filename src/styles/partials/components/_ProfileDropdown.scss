@@ -1,0 +1,50 @@
+.wrapper-profile-dropdown {
+  font-size: 0.83em;
+  letter-spacing: 0.4px;
+  cursor: default;
+  display: inline-block;
+  justify-content: flex-end;
+  color: $white;
+  position: relative;
+
+  .caret {
+    font-size: 0.6em;
+    margin-left: 2px;
+  }
+
+  &:hover ul {
+    display: flex;
+  }
+
+  ul {
+    font-size: 0.82em;
+    letter-spacing: 0.4px;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    background-color: $white;
+    box-shadow: 0 0 1px $black;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 7px 12px;
+
+    li {
+      color: $black;
+      margin: 10px 0;
+      font-size: 1.2em;
+      letter-spacing: 0.4px;
+    }
+
+    .divider {
+      border-bottom: 1px solid $white;
+      width: 100%;
+      margin: 5px 0;
+    }
+
+    .logout {
+      cursor: pointer;
+    }
+  }
+}

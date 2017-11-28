@@ -7,9 +7,11 @@ const ReviewsPage = props => {
   return (
     <div>
       <div className="wrapper wrapper-reviews-page">
-        <h1>Reviews</h1>
+        <h1>Your reviews</h1>
         <Filters />
-        <Link to="/new">+ New Review</Link>
+        <Link className="button button-new-review" to="/new">
+          + New Review
+        </Link>
         <ReviewsList />
       </div>
     </div>

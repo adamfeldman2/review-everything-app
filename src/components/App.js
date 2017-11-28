@@ -13,9 +13,8 @@ const store = configureStore();
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    store.dispatch(login(user.uid, user.email));
+    store.dispatch(login(user.uid, user.email, user.metadata.creationTime));
     console.log('uid:', user.uid);
-    console.log('email:', user.email);
     store.dispatch(startFetchReviews());
     if (history.location.pathname === '/') {
       history.push('/reviews');

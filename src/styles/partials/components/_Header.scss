@@ -1,22 +1,34 @@
 .wrapper-header {
-  position: relative;
+  background-color: $primary;
+  margin-bottom: 65px;
 
-  a[href='/profile'] {
-    color: $primary;
+  .wrapper-content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 21px;
+    padding-bottom: 21px;
 
-    div {
-      text-align: right;
+    a[href='/profile'] {
+      color: $white;
+
+      div {
+        text-align: right;
+      }
     }
-  }
 
-  a[href='/reviews'] {
-    color: $primary;
+    a[href='/reviews'] {
+      color: $white;
+      display: inline-block;
+      justify-content: center;
 
-    h1 {
-      text-align: center;
-      margin-top: 15px;
-      margin-bottom: 50px;
-      font-size: 2.5em;
+      h1 {
+        margin: 0;
+        font-size: 1.5em;
+        display: inline-block;
+        text-align: center;
+        color: $white;
+      }
     }
   }
 }

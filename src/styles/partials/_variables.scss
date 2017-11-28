@@ -1,9 +1,14 @@
 // colors //
-$black: #272727;
+$primary: #262f3e;
+$black: $primary;
 $white: #fff;
-$primary: #607d8b;
-$primary-light: #90a4ae;
-$primary-dark: #455a64;
+$splash-light: #039be5;
+$splash-dark: darken($splash-light, 3%);
+$grey-1: #f6f5f6;
+$grey-2: #dcdcdc;
+$grey-3: #b8b8b8;
+$grey-4: #9b9b9b;
+$grey-5: #7b7a7b;
 
 // fonts //
 $font-default: 'Montserrat', sans-serif;

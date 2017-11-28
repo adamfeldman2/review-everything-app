@@ -23,9 +23,11 @@ const ReviewsList = props => {
                 // if review's category matches the category heading return the review
                 if (reviewObj.category === category) {
                   return (
-                    <div key={i}>
+                    <div key={i} className="wrapper-inner-category-review">
                       <Review {...reviewObj} />
-                      <Link to={`/edit/${reviewObj.id}`}>Edit</Link>
+                      <Link to={`/edit/${reviewObj.id}`} className="button-edit">
+                        Edit
+                      </Link>
                     </div>
                   );
                 }

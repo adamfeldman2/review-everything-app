@@ -25,8 +25,7 @@ class CategoryFilter extends React.Component {
 
   render() {
     return (
-      <label>
-        Category:
+      <label className="wrapper-category-filter">
         <select value={this.state.category} onChange={this.handleCategoryChange}>
           <option value="all">ALL</option>
           {this.props.uniqueReviewsArr.length > 0 &&

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import moment from 'moment';
+import { startLogout } from '../actions/auth';
 
 class ProfileDropdown extends React.Component {
   constructor(props) {
@@ -23,14 +25,19 @@ class ProfileDropdown extends React.Component {
   }
 
   render() {
+    const accountCreation = moment(this.props.accountCreation).format('MMM D, YYYY');
     return (
-      <div className="email-dropdown" onClick={this.handleDropdown}>
-        {this.props.email} &#8595;
+      <div className="wrapper-profile-dropdown" onClick={this.handleDropdown}>
+        {this.props.email} <span className="caret">&#9660;</span>
         <ul>
-          <Link to="/profile">
+          <li>User Since: {accountCreation}</li>
+          {/* <div className="divider" /> */}
+          {/* <Link to="/profile">
             <li>Profile</li>
-          </Link>
-          <li>Logout</li>
+          </Link> */}
+          <li className="logout" onClick={this.props.startLogout}>
+            Logout
+          </li>
         </ul>
       </div>
     );
@@ -39,8 +46,17 @@ class ProfileDropdown extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    email: state.auth.email
+    email: state.auth.email,
+    accountCreation: state.auth.accountCreation
   };
 };
 
-export default connect(mapStateToProps)(ProfileDropdown);
+const mapDispatchToProps = dispatch => {
+  return {
+    startLogout: () => {
+      dispatch(startLogout());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileDropdown);

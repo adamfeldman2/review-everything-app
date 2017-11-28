@@ -2,54 +2,66 @@
   .wrapper-category {
     & > div {
       padding: 10px;
+      margin: 15px 0;
     }
 
     & > div:not(:first-of-type) {
-      border-top: 2px solid $black;
-    }
-
-    & > div:not(:last-of-type) {
-      margin-bottom: 10px;
+      border-top: 1px solid $grey-2;
     }
 
     h2 {
-      font-size: 2em;
-      background-color: $primary;
+      font-size: 2.1em;
+      background-color: $grey-1;
       text-transform: uppercase;
-      margin: 45px 0 10px;
-      color: $white;
+      margin: 51px 0 -15px;
+      color: $grey-5;
       font-weight: $font-weight-light;
       padding: 0.3em;
       letter-spacing: 1px;
       font-weight: $font-weight-light;
     }
 
-    // Ellipsis //
-    .note {
-      overflow: hidden;
-      position: relative;
-      line-height: 1.4em;
-      max-height: 4.17em;
-      text-align: justify;
-      margin-right: -1em;
-      padding-right: 1em;
+    .wrapper-inner-category-review {
+      // Ellipsis //
+      .note {
+        overflow: hidden;
+        position: relative;
+        line-height: 1.4em;
+        max-height: 4.17em;
+        text-align: justify;
+        margin-right: -1em;
+        padding-right: 1em;
+      }
+
+      .note:before {
+        content: '...';
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+      }
+
+      .note:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        background: white;
+      }
     }
 
-    .note:before {
-      content: '...';
-      position: absolute;
-      right: 5px;
-      bottom: 0;
-    }
+    .button-edit {
+      font-size: 0.77em;
+      padding: 3px 9px;
+      border: 1px solid $splash-light;
+      color: $splash-light;
+      transition: 0.13s;
 
-    .note:after {
-      content: '';
-      position: absolute;
-      right: 0;
-      width: 1em;
-      height: 1em;
-      margin-top: 0.2em;
-      background: white;
+      &:hover {
+        background-color: $splash-light;
+        color: $white;
+      }
     }
   }
 

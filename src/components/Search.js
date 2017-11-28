@@ -26,7 +26,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper-search">
         <input type="text" placeholder="Search" onChange={this.handleSearchChange} />
       </div>
     );

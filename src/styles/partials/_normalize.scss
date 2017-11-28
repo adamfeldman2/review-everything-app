@@ -200,10 +200,26 @@ body {
   color: $black;
   font-family: $font-default;
   font-weight: $font-weight-regular;
+  letter-spacing: 0.4px;
 }
 
 .wrapper {
-  max-width: 1000px;
+  max-width: 950px;
   padding: 0 5%;
   margin: 0 auto;
+}
+
+.button {
+  background-color: $splash-light;
+  padding: 7px 15px;
+  color: $white;
+  transition: background-color 0.13s;
+
+  a {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: $splash-dark;
+  }
 }

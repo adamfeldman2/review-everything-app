@@ -5,9 +5,9 @@ import Search from './Search';
 class Filters extends React.Component {
   render() {
     return (
-      <div>
-        <CategoryFilter />
+      <div className="wrapper-filters">
         <Search />
+        <CategoryFilter />
       </div>
     );
   }

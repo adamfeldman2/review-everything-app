@@ -76,7 +76,7 @@ class ReviewForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    if (this.state.title && this.state.stars) {
+    if (this.state.title && this.state.category && this.state.stars) {
       this.setState(() => {
         return {
           error: false
@@ -105,7 +105,11 @@ class ReviewForm extends React.Component {
             this.onSubmit(e);
           }}
         >
-          {this.state.error ? <div>You must include a title and leave a rating</div> : ''}
+          {this.state.error ? (
+            <div>You must include a title, category and leave a rating</div>
+          ) : (
+            ''
+          )}
           <input
             type="text"
             value={this.state.title}
@@ -142,7 +146,8 @@ class ReviewForm extends React.Component {
             onChange={this.onStarsChanged}
             edit={true}
             size={20}
-            color2={'#ffd700'}
+            color1={'#f3f3f3'}
+            color2={'#33a9d8'}
             className={'stars-wrapper'}
           />
           <textarea
