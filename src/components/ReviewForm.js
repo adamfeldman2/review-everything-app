@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactStars from 'react-stars';
 import moment from 'moment';
+import Autocomplete from 'react-autocomplete';
+import { connect } from 'react-redux';
 import { SingleDatePicker } from 'react-dates';
 
 class ReviewForm extends React.Component {
@@ -15,7 +17,8 @@ class ReviewForm extends React.Component {
       note: this.props.note || '',
       date: moment(this.props.date) || moment(),
       calendarFocused: false,
-      error: false
+      error: false,
+      uniqueReviewsArr: this.props.uniqueReviewsArr.map(review => review.category)
     };
 
     this.onTitleChange = this.onTitleChange.bind(this);
@@ -33,6 +36,15 @@ class ReviewForm extends React.Component {
 
   onCategoryChange(e) {
     const category = e.target.value;
+    this.setState(() => {
+      return {
+        category
+      };
+    });
+  }
+
+  onAutocompleteSelect(value) {
+    const category = value.toUpperCase();
     this.setState(() => {
       return {
         category
@@ -119,14 +131,36 @@ class ReviewForm extends React.Component {
               this.onTitleChange(e);
             }}
           />
-          <input
-            type="text"
-            value={this.state.category}
-            placeholder="Category"
+
+          <Autocomplete
+            inputProps={{ placeholder: 'Category' }}
+            items={this.state.uniqueReviewsArr}
+            shouldItemRender={(item, value) => {
+              return item.toLowerCase().indexOf(value.toLowerCase()) > -1;
+            }}
+            getItemValue={item => item}
+            renderItem={(item, isHighlighted, autocompleteItemWrapperStyle) => (
+              <div
+                key={item}
+                style={{
+                  background: isHighlighted ? '#039be5' : '#FFF',
+                  color: isHighlighted ? '#fff' : '#262f3e',
+                  padding: '3px',
+                  letterSpacing: '0.4px',
+                  cursor: 'pointer',
+                  textTransform: 'uppercase'
+                }}
+              >
+                {item}
+              </div>
+            )}
             onChange={e => {
               this.onCategoryChange(e);
             }}
+            value={this.state.category}
+            onSelect={val => this.onAutocompleteSelect(val)}
           />
+
           <SingleDatePicker
             date={this.state.date}
             onDateChange={date => {
@@ -140,6 +174,7 @@ class ReviewForm extends React.Component {
             isOutsideRange={() => false}
             displayFormat={'MMM D, YYYY'}
           />
+
           <ReactStars
             value={this.state.stars}
             count={5}
@@ -150,6 +185,7 @@ class ReviewForm extends React.Component {
             color2={'#33a9d8'}
             className={'stars-wrapper'}
           />
+
           <textarea
             value={this.state.note}
             placeholder="Note (Optional)"
@@ -157,6 +193,7 @@ class ReviewForm extends React.Component {
               this.onNoteChanged(e);
             }}
           />
+
           <input type="submit" value="Submit" />
         </form>
       </div>
@@ -164,4 +201,20 @@ class ReviewForm extends React.Component {
   }
 }
 
-export default ReviewForm;
+const mapStateToProps = state => {
+  const uniqueCategories = [];
+  return {
+    uniqueReviewsArr: state.reviews
+      .filter(review => {
+        if (uniqueCategories.indexOf(review.category) <= -1) {
+          uniqueCategories.push(review.category);
+          return review;
+        }
+      })
+      .sort((a, b) => {
+        return a.category > b.category ? 1 : -1;
+      })
+  };
+};
+
+export default connect(mapStateToProps)(ReviewForm);
