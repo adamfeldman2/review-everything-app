@@ -10,7 +10,7 @@
 
     .wrapper-title-date {
       h3 {
-        font-size: 1.3em;
+        font-size: 1.25em;
         text-transform: uppercase;
         color: $grey-5;
         margin-bottom: 3px;
@@ -31,5 +31,6 @@
   .note {
     margin: 20px 0 35px;
     color: $grey-5;
+    font-size: 0.93em;
   }
 }

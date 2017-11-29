@@ -1,4 +1,4 @@
-.wrapper-reviews-page {
+.wrapper-new-review-page {
   .wrapper-page-title {
     margin-bottom: 60px;
     background-color: $grey-1;
@@ -15,7 +15,8 @@
     }
   }
 
-  .button-new-review {
-    margin: 20px 0;
+  .button-all-reviews {
+    display: inline-block;
+    margin-bottom: 45px;
   }
 }

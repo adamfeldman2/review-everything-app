@@ -5,6 +5,19 @@ import Autocomplete from 'react-autocomplete';
 import { connect } from 'react-redux';
 import { SingleDatePicker } from 'react-dates';
 
+const autocompleteMenuStyle = {
+  zIndex: '9999',
+  borderRadius: '3px',
+  boxShadow: '0 2px 12px rgba(0, 0, 0, 0.4)',
+  background: 'rgba(255, 255, 255, 0.9)',
+  padding: '2px 0',
+  fontSize: '90%',
+  top: '446px',
+  position: 'fixed',
+  overflow: 'auto',
+  maxHeight: '50%'
+};
+
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
@@ -111,7 +124,7 @@ class ReviewForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper-review-form">
         <form
           onSubmit={e => {
             this.onSubmit(e);
@@ -133,13 +146,14 @@ class ReviewForm extends React.Component {
           />
 
           <Autocomplete
-            inputProps={{ placeholder: 'Category' }}
+            inputProps={{ placeholder: 'Category', className: 'category' }}
             items={this.state.uniqueReviewsArr}
             shouldItemRender={(item, value) => {
               return item.toLowerCase().indexOf(value.toLowerCase()) > -1;
             }}
+            menuStyle={autocompleteMenuStyle}
             getItemValue={item => item}
-            renderItem={(item, isHighlighted, autocompleteItemWrapperStyle) => (
+            renderItem={(item, isHighlighted) => (
               <div
                 key={item}
                 style={{
@@ -161,30 +175,33 @@ class ReviewForm extends React.Component {
             onSelect={val => this.onAutocompleteSelect(val)}
           />
 
-          <SingleDatePicker
-            date={this.state.date}
-            onDateChange={date => {
-              this.onDateChange(date);
-            }}
-            focused={this.state.calendarFocused}
-            onFocusChange={({ focused }) => {
-              this.onFocusChange({ focused });
-            }}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-            displayFormat={'MMM D, YYYY'}
-          />
+          <div className="wrapper-date-stars">
+            <SingleDatePicker
+              className="date-picker"
+              date={this.state.date}
+              onDateChange={date => {
+                this.onDateChange(date);
+              }}
+              focused={this.state.calendarFocused}
+              onFocusChange={({ focused }) => {
+                this.onFocusChange({ focused });
+              }}
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+              displayFormat={'MMM D, YYYY'}
+            />
 
-          <ReactStars
-            value={this.state.stars}
-            count={5}
-            onChange={this.onStarsChanged}
-            edit={true}
-            size={20}
-            color1={'#f3f3f3'}
-            color2={'#33a9d8'}
-            className={'stars-wrapper'}
-          />
+            <ReactStars
+              value={this.state.stars}
+              count={5}
+              onChange={this.onStarsChanged}
+              edit={true}
+              size={20}
+              color1={'#f6f5f6'}
+              color2={'#33a9d8'}
+              className={'stars-wrapper'}
+            />
+          </div>
 
           <textarea
             value={this.state.note}

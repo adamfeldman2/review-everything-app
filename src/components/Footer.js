@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="wrapper-footer">
       <div className="wrapper wrapper-footer-content">
         <p>
-          CREATED BY:{' '}
+          Created by:{' '}
           <a href="http://adamfeldman.io" target="_blank">
             Adam Feldman
           </a>
