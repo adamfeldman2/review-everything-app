@@ -1,4 +1,21 @@
-.wrapper-new-review-page {
+.wrapper-full-review-page {
+  h3:hover {
+    color: $grey-5 !important;
+  }
+
+  .button-edit {
+    font-size: 0.77em;
+    padding: 3px 9px;
+    border: 1px solid $splash-light;
+    color: $splash-light;
+    transition: 0.13s;
+
+    &:hover {
+      background-color: $splash-light;
+      color: $white;
+    }
+  }
+
   .wrapper-page-title {
     margin-bottom: 40px;
     background-color: $grey-1;

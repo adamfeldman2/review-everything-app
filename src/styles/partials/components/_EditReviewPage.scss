@@ -1,3 +1,88 @@
 .wrapper-edit-review-page {
-  border: 1px solid;
+  .wrapper-page-title {
+    margin-bottom: 40px;
+    background-color: $grey-1;
+
+    .wrapper-page-title-content {
+      padding-top: 30px;
+      padding-bottom: 30px;
+
+      h1 {
+        margin: 0;
+        font-size: 1.9em;
+        color: $grey-5;
+      }
+    }
+  }
+
+  .button-all-reviews {
+    display: inline-block;
+    margin-bottom: 45px;
+  }
+
+  .button-remove-review {
+    font-size: 1em;
+    width: 190px;
+    padding: 12px 16px;
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: 500;
+    border: 2px solid $red;
+    font-family: $font-default;
+    border-radius: 0;
+    color: $red;
+    text-transform: uppercase;
+    outline: 0;
+    transition: 0.13s;
+
+    &:hover {
+      color: $white;
+      background-color: $red;
+    }
+  }
+}
+
+.modal-content {
+  p {
+    margin-bottom: 13px;
+  }
+
+  .wrapper-modal-buttons {
+    display: flex;
+    justify-content: center;
+
+    .modal-button {
+      font-size: 0.77em;
+      padding: 5px 11px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: $font-default;
+      border-radius: 0;
+      outline: 0;
+      border: 0;
+      transition: background-color 0.13s;
+
+      &:hover {
+      }
+    }
+
+    .modal-button-cancel {
+      background-color: $splash-light;
+      color: $white;
+      margin-right: 20px;
+
+      &:hover {
+        background-color: $splash-dark;
+      }
+    }
+
+    .modal-button-yes {
+      background-color: $red;
+      color: $white;
+
+      &:hover {
+        background-color: $red-dark;
+      }
+    }
+  }
 }

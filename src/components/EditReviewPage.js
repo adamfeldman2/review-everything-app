@@ -12,7 +12,7 @@ const modalStyles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(96, 125, 139, 0.85)',
+    backgroundColor: 'rgba(246, 245, 246, 0.85)',
     zIndex: '9999'
   },
 
@@ -25,7 +25,7 @@ const modalStyles = {
     transform: 'translate(-50%)',
     border: '1px solid #ccc',
     background: '#fff',
-    overflow: 'auto',
+    overflow: 'hidden',
     WebkitOverflowScrolling: 'touch',
     borderRadius: '4px',
     outline: 'none',
@@ -77,27 +77,52 @@ class EditReviewPage extends React.Component {
   render() {
     return (
       <div>
-        <div className="wrapper wrapper-edit-review-page">
-          <h1>Edit Review</h1>
-          <Link to="/reviews">&#8592; All Reviews</Link>
-          {this.props.review && (
-            <ReviewForm
-              {...this.props.review}
-              onSubmit={review => {
-                this.props.dispatch(startEditReview(review));
-                this.props.history.push('/reviews');
-              }}
-            />
-          )}
-
-          <button onClick={this.openModal}>Remove</button>
+        <div className="wrapper-edit-review-page">
+          <div className="wrapper-page-title">
+            <div className="wrapper wrapper-page-title-content">
+              <h1>Edit Review</h1>
+            </div>
+          </div>
+          <div className="wrapper wrapper-edit-review-page-content">
+            <Link className="button button-all-reviews" to="/reviews">
+              &#8592; All Reviews
+            </Link>
+            {this.props.review && (
+              <ReviewForm
+                {...this.props.review}
+                onSubmit={review => {
+                  this.props.dispatch(startEditReview(review));
+                  this.props.history.push('/reviews');
+                }}
+              />
+            )}
+            <button className="button-remove-review" onClick={this.openModal}>
+              Remove
+            </button>
+          </div>
         </div>
 
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={modalStyles}>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          style={modalStyles}
+        >
           <div className="modal-content">
             <p>Are you sure you want to remove this review?</p>
-            <button onClick={this.closeModal}>Cancel</button>
-            <button onClick={this.handleRemoveButton}>YES</button>
+            <div className="wrapper-modal-buttons">
+              <button
+                className="modal-button-cancel modal-button"
+                onClick={this.closeModal}
+              >
+                Cancel
+              </button>
+              <button
+                className="modal-button-yes modal-button"
+                onClick={this.handleRemoveButton}
+              >
+                Remove
+              </button>
+            </div>
           </div>
         </Modal>
       </div>

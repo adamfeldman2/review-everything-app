@@ -1,4 +1,11 @@
 .wrapper-review-form {
+  .error {
+    font-size: 1.4em;
+    color: $red;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
   input,
   textarea {
     width: 100%;
@@ -12,6 +19,7 @@
 
   input[type='text'] + div {
     display: block !important;
+    position: relative;
   }
 
   .wrapper-date-stars {
@@ -44,6 +52,7 @@
     font-family: $font-default;
     border-radius: 0;
     color: $splash-light;
+    outline: 0;
     text-transform: uppercase;
     transition: 0.13s;
 

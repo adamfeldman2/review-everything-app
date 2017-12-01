@@ -12,10 +12,14 @@ const autocompleteMenuStyle = {
   background: 'rgba(255, 255, 255, 0.9)',
   padding: '2px 0',
   fontSize: '90%',
-  top: '446px',
-  position: 'fixed',
+  top: '56px',
+  left: '2px',
+  width: '100%',
+  position: 'absolute',
   overflow: 'auto',
-  maxHeight: '50%'
+  maxHeight: '150px',
+  height: '150px',
+  minWidth: '100%'
 };
 
 class ReviewForm extends React.Component {
@@ -131,7 +135,9 @@ class ReviewForm extends React.Component {
           }}
         >
           {this.state.error ? (
-            <div>You must include a title, category and leave a rating</div>
+            <div className="error">
+              You must include a title, category and leave a rating
+            </div>
           ) : (
             ''
           )}
@@ -177,7 +183,6 @@ class ReviewForm extends React.Component {
 
           <div className="wrapper-date-stars">
             <SingleDatePicker
-              className="date-picker"
               date={this.state.date}
               onDateChange={date => {
                 this.onDateChange(date);

@@ -223,8 +223,66 @@ body {
     height: 36px;
     outline: 0; }
 
-.wrapper-edit-review-page {
-  border: 1px solid; }
+.wrapper-edit-review-page .wrapper-page-title {
+  margin-bottom: 40px;
+  background-color: #f6f5f6; }
+  .wrapper-edit-review-page .wrapper-page-title .wrapper-page-title-content {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+    .wrapper-edit-review-page .wrapper-page-title .wrapper-page-title-content h1 {
+      margin: 0;
+      font-size: 1.9em;
+      color: #7b7a7b; }
+
+.wrapper-edit-review-page .button-all-reviews {
+  display: inline-block;
+  margin-bottom: 45px; }
+
+.wrapper-edit-review-page .button-remove-review {
+  font-size: 1em;
+  width: 190px;
+  padding: 12px 16px;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 500;
+  border: 2px solid #e15050;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 0;
+  color: #e15050;
+  text-transform: uppercase;
+  outline: 0;
+  transition: 0.13s; }
+  .wrapper-edit-review-page .button-remove-review:hover {
+    color: #fff;
+    background-color: #e15050; }
+
+.modal-content p {
+  margin-bottom: 13px; }
+
+.modal-content .wrapper-modal-buttons {
+  display: flex;
+  justify-content: center; }
+  .modal-content .wrapper-modal-buttons .modal-button {
+    font-size: 0.77em;
+    padding: 5px 11px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 0;
+    outline: 0;
+    border: 0;
+    transition: background-color 0.13s; }
+  .modal-content .wrapper-modal-buttons .modal-button-cancel {
+    background-color: #039be5;
+    color: #fff;
+    margin-right: 20px; }
+    .modal-content .wrapper-modal-buttons .modal-button-cancel:hover {
+      background-color: #0391d6; }
+  .modal-content .wrapper-modal-buttons .modal-button-yes {
+    background-color: #e15050;
+    color: #fff; }
+    .modal-content .wrapper-modal-buttons .modal-button-yes:hover {
+      background-color: #dc3232; }
 
 .wrapper-filters {
   margin-bottom: 30px;
@@ -240,6 +298,34 @@ body {
       color: #039be5; }
       .wrapper-footer p a:hover {
         text-decoration: underline; }
+
+.wrapper-full-review-page h3:hover {
+  color: #7b7a7b !important; }
+
+.wrapper-full-review-page .button-edit {
+  font-size: 0.77em;
+  padding: 3px 9px;
+  border: 1px solid #039be5;
+  color: #039be5;
+  transition: 0.13s; }
+  .wrapper-full-review-page .button-edit:hover {
+    background-color: #039be5;
+    color: #fff; }
+
+.wrapper-full-review-page .wrapper-page-title {
+  margin-bottom: 40px;
+  background-color: #f6f5f6; }
+  .wrapper-full-review-page .wrapper-page-title .wrapper-page-title-content {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+    .wrapper-full-review-page .wrapper-page-title .wrapper-page-title-content h1 {
+      margin: 0;
+      font-size: 1.9em;
+      color: #7b7a7b; }
+
+.wrapper-full-review-page .button-all-reviews {
+  display: inline-block;
+  margin-bottom: 45px; }
 
 .wrapper-header {
   background-color: #262f3e; }
@@ -265,7 +351,7 @@ body {
         color: #fff; }
 
 .wrapper-new-review-page .wrapper-page-title {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   background-color: #f6f5f6; }
   .wrapper-new-review-page .wrapper-page-title .wrapper-page-title-content {
     padding-top: 30px;
@@ -341,6 +427,12 @@ body {
   color: #7b7a7b;
   font-size: 0.93em; }
 
+.wrapper-review-form .error {
+  font-size: 1.4em;
+  color: #e15050;
+  text-transform: uppercase;
+  margin-bottom: 20px; }
+
 .wrapper-review-form input,
 .wrapper-review-form textarea {
   width: 100%;
@@ -352,7 +444,8 @@ body {
   outline: 0; }
 
 .wrapper-review-form input[type='text'] + div {
-  display: block !important; }
+  display: block !important;
+  position: relative; }
 
 .wrapper-review-form .wrapper-date-stars {
   display: flex; }
@@ -379,6 +472,7 @@ body {
   font-family: "Montserrat", sans-serif;
   border-radius: 0;
   color: #039be5;
+  outline: 0;
   text-transform: uppercase;
   transition: 0.13s; }
   .wrapper-review-form input[type='submit']:hover {
@@ -416,8 +510,8 @@ body {
 .wrapper-reviews-list .wrapper-category .wrapper-inner-category-review .note:before {
   content: '...';
   position: absolute;
-  right: 5px;
-  bottom: 0; }
+  right: 4px;
+  bottom: 1px; }
 
 .wrapper-reviews-list .wrapper-category .wrapper-inner-category-review .note:after {
   content: '';

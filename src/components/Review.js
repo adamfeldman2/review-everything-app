@@ -29,7 +29,6 @@ const Review = props => {
             className={'stars-wrapper'}
           />
         </div>
-        <div className="category">Category: {category}</div>
         <div className="note">{note}</div>
       </div>
     </div>
