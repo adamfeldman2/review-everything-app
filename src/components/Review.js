@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 const Review = props => {
-  const { title, date, category, stars, note } = props;
+  const { title, date, stars, note } = props;
   return (
     <div>
       <div className="wrapper-review">

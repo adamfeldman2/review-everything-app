@@ -1,0 +1,14 @@
+.wrapper-login-page {
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin-top: 30px;
+    font-size: 1.4em;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: 0;
+    outline: 0;
+  }
+}

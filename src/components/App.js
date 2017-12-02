@@ -14,14 +14,12 @@ const store = configureStore();
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     store.dispatch(login(user.uid, user.email, user.metadata.creationTime));
-    console.log('uid:', user.uid);
     store.dispatch(startFetchReviews());
     if (history.location.pathname === '/') {
       history.push('/reviews');
     }
   } else {
     store.dispatch(logout());
-    console.log('Logged out');
     history.push('/');
   }
 });

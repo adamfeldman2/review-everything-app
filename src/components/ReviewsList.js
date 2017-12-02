@@ -36,7 +36,8 @@ const ReviewsList = props => {
           );
         })
       ) : (
-        <div className="loading" />
+        // <div className="loading" />
+        <div className="no-reviews">No Reviews</div>
       )}
     </div>
   );

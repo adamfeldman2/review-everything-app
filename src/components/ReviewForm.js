@@ -17,8 +17,6 @@ const autocompleteMenuStyle = {
   width: '100%',
   position: 'absolute',
   overflow: 'auto',
-  maxHeight: '150px',
-  height: '150px',
   minWidth: '100%'
 };
 
@@ -202,7 +200,7 @@ class ReviewForm extends React.Component {
               onChange={this.onStarsChanged}
               edit={true}
               size={20}
-              color1={'#f6f5f6'}
+              color1={'#dcdcdc'}
               color2={'#33a9d8'}
               className={'stars-wrapper'}
             />

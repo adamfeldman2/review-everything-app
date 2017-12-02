@@ -16,7 +16,6 @@ class ProfileDropdown extends React.Component {
   }
 
   handleDropdown() {
-    console.log('DROPDOWN CLICKED');
     this.setState(() => {
       return {
         dropdownVisible: true

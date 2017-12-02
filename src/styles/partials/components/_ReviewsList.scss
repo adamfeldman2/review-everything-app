@@ -70,10 +70,17 @@
     display: none;
   }
 
-  .loading {
-    height: 65vh;
-    background-image: url(../images/loading.gif);
-    background-position: 50% 5%;
-    background-repeat: no-repeat;
+  // .loading {
+  //   height: 65vh;
+  //   background-image: url(../images/loading.gif);
+  //   background-position: 50% 5%;
+  //   background-repeat: no-repeat;
+  // }
+
+  .no-reviews {
+    text-align: center;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    padding: 60px 0;
   }
 }

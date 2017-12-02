@@ -350,6 +350,18 @@ body {
         text-align: center;
         color: #fff; }
 
+.wrapper-login-page {
+  display: flex;
+  justify-content: center; }
+  .wrapper-login-page button {
+    margin-top: 30px;
+    font-size: 1.4em;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: 0;
+    outline: 0; }
+
 .wrapper-new-review-page .wrapper-page-title {
   margin-bottom: 40px;
   background-color: #f6f5f6; }
@@ -441,7 +453,8 @@ body {
   font-weight: 200;
   letter-spacing: 0.4px;
   margin-bottom: 20px;
-  outline: 0; }
+  outline: 0;
+  font-family: "Montserrat", sans-serif; }
 
 .wrapper-review-form input[type='text'] + div {
   display: block !important;
@@ -535,11 +548,11 @@ body {
 .wrapper-reviews-list .category {
   display: none; }
 
-.wrapper-reviews-list .loading {
-  height: 65vh;
-  background-image: url(../images/loading.gif);
-  background-position: 50% 5%;
-  background-repeat: no-repeat; }
+.wrapper-reviews-list .no-reviews {
+  text-align: center;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  padding: 60px 0; }
 
 .wrapper-reviews-page .wrapper-page-title {
   margin-bottom: 60px;

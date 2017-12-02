@@ -4,8 +4,10 @@ import { startLogin } from '../actions/auth';
 
 const Login = props => {
   return (
-    <div>
-      <button onClick={props.startLogin}>Login</button>
+    <div className="wrapper wrapper-login-page">
+      <button className="button" onClick={props.startLogin}>
+        Login
+      </button>
     </div>
   );
 };
