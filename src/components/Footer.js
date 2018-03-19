@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="wrapper wrapper-footer-content">
         <p>
           Created by:{' '}
-          <a href="http://adamfeldman.io" target="_blank" rel="noopener noreferrer">
+          <a href="https://adamcodes.ca" target="_blank" rel="noopener noreferrer">
             Adam Feldman
           </a>
         </p>
